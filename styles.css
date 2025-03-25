@@ -3,6 +3,7 @@
     padding: 0;
     box-sizing: border-box;
     font-family: 'Rubik', sans-serif;
+    -webkit-tap-highlight-color: transparent;
 }
 
 body {
@@ -12,6 +13,8 @@ body {
     justify-content: center;
     align-items: center;
     min-height: 100vh;
+    touch-action: manipulation;
+    padding: 10px;
 }
 
 body:before {
@@ -397,9 +400,9 @@ footer {
     max-width: 800px;
     color: #E0E0E0;
     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+    display: none;
     position: relative;
     overflow: hidden;
-    display: block;
 }
 
 .keyboard-learning-container:before {
@@ -466,13 +469,24 @@ footer {
     background-color: rgba(142, 198, 230, 0.1);
     border-radius: 15px;
     padding: 25px;
-    margin: 25px auto;
+    margin: 25px 0;
     box-shadow: inset 0 0 15px rgba(0, 0, 0, 0.3);
     position: relative;
     overflow: hidden;
     border: 1px solid rgba(142, 198, 230, 0.2);
-    display: flex;
-    justify-content: center;
+}
+
+.keyboard-container:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 30px;
+    background: linear-gradient(to bottom, rgba(46, 62, 80, 0.6), transparent);
+    pointer-events: none;
+    z-index: 1;
+    border-radius: 15px 15px 0 0;
 }
 
 .keyboard {
@@ -481,19 +495,16 @@ footer {
     gap: 10px;
     margin-bottom: 20px;
     position: relative;
-    max-width: 900px;
-    width: 100%;
 }
 
 .keyboard-row {
     display: flex;
     justify-content: center;
     gap: 8px;
-    width: 100%;
 }
 
 .key {
-    min-width: 40px;
+    min-width: 45px;
     height: 55px;
     background: linear-gradient(to bottom, #a5d4ec, #8EC6E6);
     color: #2E3E50;
@@ -509,8 +520,7 @@ footer {
     position: relative;
     overflow: hidden;
     border: 1px solid rgba(255, 255, 255, 0.2);
-    font-size: 1rem;
-    padding: 0 5px;
+    font-size: 1.1rem;
 }
 
 .key:before {
@@ -565,7 +575,7 @@ footer {
 }
 
 .key[data-key="Space"] {
-    width: 250px;
+    width: 200px;
 }
 
 .key[data-key="Shift"],
@@ -788,9 +798,9 @@ footer {
     max-width: 800px;
     color: #E0E0E0;
     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
-    display: none;
     position: relative;
     overflow: hidden;
+    display: block;
 }
 
 .mouse-learning-container:before {
@@ -1063,6 +1073,7 @@ footer {
     cursor: not-allowed;
     transform: none;
     box-shadow: none;
+    display: none;
 }
 
 .completion-message {
@@ -1111,14 +1122,6 @@ footer {
     }
 }
 
-.items-container {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 25px;
-    margin: 40px auto;
-    max-width: 500px;
-}
-
 .folder-item {
     background-color: rgba(46, 62, 80, 0.5);
     border-radius: 10px;
@@ -1133,25 +1136,20 @@ footer {
     position: relative;
     overflow: hidden;
     user-select: none;
-}
-
-.folder-item svg {
-    width: 60px;
-    height: 60px;
-    fill: #8a9fb3;
-    transition: all 0.3s ease;
+    -webkit-user-select: none; 
+    -ms-user-select: none; 
+    -moz-user-select: none;
 }
 
 .folder-item span {
     font-size: 1.1rem;
     color: #E0E0E0;
     text-align: center;
-}
-
-.folder-item:hover {
-    background-color: rgba(46, 62, 80, 0.7);
-    transform: translateY(-5px);
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+    -moz-user-select: none;
+    pointer-events: none;
 }
 
 .folder-item.active {
@@ -1170,30 +1168,17 @@ footer {
 }
 
 .folder-item.success {
-    border-color: #4CAF50;
-    background-color: rgba(76, 175, 80, 0.1);
+    border-color: #8EC6E6;
+    background-color: rgba(142, 198, 230, 0.1);
 }
 
 .folder-item.success svg {
-    fill: #4CAF50;
+    fill: #8EC6E6;
 }
 
 @keyframes folderPulse {
-    0% { box-shadow: 0 0 10px rgba(142, 198, 230, 0.4); }
-    100% { box-shadow: 0 0 20px rgba(142, 198, 230, 0.7); }
-}
-
-.drag-items-container {
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    gap: 25px;
-    margin: 20px 0;
-    min-height: 100px;
-    padding: 15px;
-    background-color: rgba(46, 62, 80, 0.3);
-    border-radius: 10px;
-    border: 1px dashed rgba(142, 198, 230, 0.3);
+    0% { box-shadow: 0 0 10px rgba(142, 198, 230, 0.4); transform: scale(1); }
+    100% { box-shadow: 0 0 20px rgba(142, 198, 230, 0.7); transform: scale(1.05); }
 }
 
 .drag-item {
@@ -1208,6 +1193,8 @@ footer {
     transition: all 0.3s ease;
     position: relative;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    touch-action: none;
+    -webkit-touch-callout: none;
 }
 
 .drag-item:before {
@@ -1303,6 +1290,100 @@ footer {
     animation: shake 0.5s;
     border-color: #F44336;
     background-color: rgba(244, 67, 54, 0.1);
+}
+
+@media (max-width: 767px) {
+    body {
+        padding: 10px;
+    }
+    
+    h1 {
+        font-size: 2.2rem;
+    }
+    
+    .container {
+        max-width: 100%;
+        min-height: 100vh;
+        padding: 10px;
+    }
+    
+    .mouse-learning-container {
+        padding: 15px;
+    }
+    
+    .mouse-learning-header h2 {
+        font-size: 1.8rem;
+    }
+    
+    .mouse-learning-header p {
+        font-size: 1rem;
+    }
+    
+    .activity-selector {
+        flex-wrap: wrap;
+        gap: 8px;
+    }
+    
+    .activity-tab {
+        padding: 10px 15px;
+        font-size: 0.9rem;
+        flex: 1;
+        min-width: 90px;
+        text-align: center;
+    }
+    
+    .mouse-practice-area {
+        padding: 15px;
+        min-height: 320px;
+    }
+    
+    .click-target {
+        width: 70px;
+        height: 70px;
+        box-shadow: 0 0 20px rgba(142, 198, 230, 0.7);
+    }
+    
+    .drag-items-container {
+        gap: 15px;
+    }
+    
+    .drop-zones-container {
+        grid-template-columns: 1fr;
+        gap: 15px;
+        margin-bottom: 15px;
+    }
+    
+    .drop-zone {
+        min-height: 90px;
+    }
+    
+    .folder-item svg {
+        width: 45px;
+        height: 45px;
+    }
+    
+    .folder-item span {
+        font-size: 0.9rem;
+    }
+    
+    .items-container {
+        gap: 15px;
+        margin: 25px auto;
+    }
+    
+    .instruction-text {
+        font-size: 1.1rem;
+    }
+    
+    .completion-message {
+        width: 90%;
+        padding: 20px;
+    }
+    
+    .start-activity-btn {
+        margin-top: 15px;
+        padding: 10px 20px;
+    }
 }
 
 @media (max-width: 480px) {
