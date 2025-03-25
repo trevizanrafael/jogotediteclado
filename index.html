@@ -1,109 +1,122 @@
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TEDI: Ensinando Teclado</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>TEDI: Ensinando Mouse</title>
     <link rel="stylesheet" href="styles.css">
     <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;700&display=swap" rel="stylesheet">
 </head>
 <body>
     <div class="container">
         <header>
-            <h1>TEDI: Ensinando Teclado</h1>
+            <h1>TEDI: Ensinando Mouse</h1>
         </header>
         
         <main>
-            <div class="keyboard-learning-container">
-                <div class="keyboard-learning-header">
-                    <h2>Aprendendo o Teclado</h2>
-                    <p>Pratique a digitação seguindo as instruções e observando o teclado virtual</p>
+            <div class="mouse-learning-container">
+                <div class="mouse-learning-header">
+                    <h2>Aprendendo o Mouse</h2>
+                    <p>Pratique seus movimentos seguindo as instruções abaixo</p>
                 </div>
                 
-                <div class="keyboard-container">
-                    <div class="keyboard">
-                        <div class="keyboard-row">
-                            <div class="key" data-key="Escape">ESC</div>
-                            <div class="key" data-key="1">1</div>
-                            <div class="key" data-key="2">2</div>
-                            <div class="key" data-key="3">3</div>
-                            <div class="key" data-key="4">4</div>
-                            <div class="key" data-key="5">5</div>
-                            <div class="key" data-key="6">6</div>
-                            <div class="key" data-key="7">7</div>
-                            <div class="key" data-key="8">8</div>
-                            <div class="key" data-key="9">9</div>
-                            <div class="key" data-key="0">0</div>
-                            <div class="key" data-key="-">-</div>
-                            <div class="key" data-key="=">=</div>
-                            <div class="key" data-key="Backspace">⌫</div>
+                <div class="activity-selector">
+                    <button class="activity-tab active" data-activity="click">Clique</button>
+                    <button class="activity-tab" data-activity="doubleclick">Clique Duplo</button>
+                    <button class="activity-tab" data-activity="drag">Arrastar</button>
+                </div>
+                
+                <div class="mouse-practice-area">
+                    <div class="activity-container click-activity active">
+                        <div class="instruction-text">Clique nos alvos quando eles aparecerem</div>
+                        <div class="click-game-area">
+                            <div class="score-display">Pontuação: <span class="score">0</span></div>
+                            <div class="timer-display">Tempo: <span class="timer">30</span>s</div>
                         </div>
-                        <div class="keyboard-row">
-                            <div class="key" data-key="Tab">⇥</div>
-                            <div class="key" data-key="q">Q</div>
-                            <div class="key" data-key="w">W</div>
-                            <div class="key" data-key="e">E</div>
-                            <div class="key" data-key="r">R</div>
-                            <div class="key" data-key="t">T</div>
-                            <div class="key" data-key="y">Y</div>
-                            <div class="key" data-key="u">U</div>
-                            <div class="key" data-key="i">I</div>
-                            <div class="key" data-key="o">O</div>
-                            <div class="key" data-key="p">P</div>
-                            <div class="key" data-key="[">[</div>
-                            <div class="key" data-key="]">]</div>
-                            <div class="key" data-key="\\">\\</div>
+                        <button class="start-activity-btn">Iniciar Atividade</button>
+                    </div>
+                    
+                    <div class="activity-container doubleclick-activity">
+                        <div class="instruction-text">Faça clique duplo nos itens destacados</div>
+                        <div class="doubleclick-game-area">
+                            <div class="score-display">Pontuação: <span class="score">0</span></div>
+                            <div class="timer-display">Tempo: <span class="timer">30</span>s</div>
+                            <div class="items-container">
+                                <div class="folder-item" data-status="inactive">
+                                    <svg viewBox="0 0 24 24" fill="currentColor">
+                                        <path d="M10,4H4C2.9,4,2,4.9,2,6v12c0,1.1,0.9,2,2,2h16c1.1,0,2-0.9,2-2V8c0-1.1-0.9-2-2-2h-8L10,4z"/>
+                                    </svg>
+                                    <span>Pasta 1</span>
+                                </div>
+                                <div class="folder-item" data-status="inactive">
+                                    <svg viewBox="0 0 24 24" fill="currentColor">
+                                        <path d="M10,4H4C2.9,4,2,4.9,2,6v12c0,1.1,0.9,2,2,2h16c1.1,0,2-0.9,2-2V8c0-1.1-0.9-2-2-2h-8L10,4z"/>
+                                    </svg>
+                                    <span>Pasta 2</span>
+                                </div>
+                                <div class="folder-item" data-status="inactive">
+                                    <svg viewBox="0 0 24 24" fill="currentColor">
+                                        <path d="M10,4H4C2.9,4,2,4.9,2,6v12c0,1.1,0.9,2,2,2h16c1.1,0,2-0.9,2-2V8c0-1.1-0.9-2-2-2h-8L10,4z"/>
+                                    </svg>
+                                    <span>Pasta 3</span>
+                                </div>
+                                <div class="folder-item" data-status="inactive">
+                                    <svg viewBox="0 0 24 24" fill="currentColor">
+                                        <path d="M10,4H4C2.9,4,2,4.9,2,6v12c0,1.1,0.9,2,2,2h16c1.1,0,2-0.9,2-2V8c0-1.1-0.9-2-2-2h-8L10,4z"/>
+                                    </svg>
+                                    <span>Pasta 4</span>
+                                </div>
+                            </div>
                         </div>
-                        <div class="keyboard-row">
-                            <div class="key" data-key="CapsLock">Caps</div>
-                            <div class="key" data-key="a">A</div>
-                            <div class="key" data-key="s">S</div>
-                            <div class="key" data-key="d">D</div>
-                            <div class="key" data-key="f">F</div>
-                            <div class="key" data-key="g">G</div>
-                            <div class="key" data-key="h">H</div>
-                            <div class="key" data-key="j">J</div>
-                            <div class="key" data-key="k">K</div>
-                            <div class="key" data-key="l">L</div>
-                            <div class="key" data-key=";">;</div>
-                            <div class="key" data-key="'">'</div>
-                            <div class="key" data-key="Enter">⏎</div>
+                        <button class="start-activity-btn">Iniciar Atividade</button>
+                    </div>
+                    
+                    <div class="activity-container drag-activity">
+                        <div class="instruction-text">Arraste os itens para os locais indicados</div>
+                        <div class="drag-game-area">
+                            <div class="score-display">Itens colocados: <span class="score">0</span>/4</div>
+                            <div class="drag-items-container">
+                                <div class="drag-item" draggable="true" data-item-type="document">
+                                    <svg viewBox="0 0 24 24" fill="currentColor">
+                                        <path d="M14,2H6C4.9,2,4,2.9,4,4v16c0,1.1,0.9,2,2,2h12c1.1,0,2-0.9,2-2V8L14,2z M16,16H8v-2h8V16z M16,12H8v-2h8V12z M13,9V3.5L18.5,9H13z"/>
+                                    </svg>
+                                </div>
+                                <div class="drag-item" draggable="true" data-item-type="image">
+                                    <svg viewBox="0 0 24 24" fill="currentColor">
+                                        <path d="M21,19V5c0-1.1-0.9-2-2-2H5C3.9,3,3,3.9,3,5v14c0,1.1,0.9,2,2,2h14C20.1,21,21,20.1,21,19z M8.5,13.5l2.5,3.01L14.5,12l4.5,6H5L8.5,13.5z"/>
+                                    </svg>
+                                </div>
+                                <div class="drag-item" draggable="true" data-item-type="video">
+                                    <svg viewBox="0 0 24 24" fill="currentColor">
+                                        <path d="M18,10.48V6c0-1.1-0.9-2-2-2H4C2.9,4,2,4.9,2,6v12c0,1.1,0.9,2,2,2h12c1.1,0,2-0.9,2-2v-4.48l4,3.98v-11L18,10.48z M10,17l-3-3.5l1-1C8,12.5,9,12,9,12l1,1L10,17z"/>
+                                    </svg>
+                                </div>
+                                <div class="drag-item" draggable="true" data-item-type="music">
+                                    <svg viewBox="0 0 24 24" fill="currentColor">
+                                        <path d="M12,3v10.55c-0.59-0.34-1.27-0.55-2-0.55c-2.21,0-4,1.79-4,4s1.79,4,4,4s4-1.79,4-4V7h4V3H12z"/>
+                                    </svg>
+                                </div>
+                            </div>
+                            <div class="drop-zones-container">
+                                <div class="drop-zone" data-zone-type="document">
+                                    <div class="zone-label">Documentos</div>
+                                </div>
+                                <div class="drop-zone" data-zone-type="image">
+                                    <div class="zone-label">Imagens</div>
+                                </div>
+                                <div class="drop-zone" data-zone-type="video">
+                                    <div class="zone-label">Vídeos</div>
+                                </div>
+                                <div class="drop-zone" data-zone-type="music">
+                                    <div class="zone-label">Músicas</div>
+                                </div>
+                            </div>
                         </div>
-                        <div class="keyboard-row">
-                            <div class="key" data-key="Shift">⇧</div>
-                            <div class="key" data-key="z">Z</div>
-                            <div class="key" data-key="x">X</div>
-                            <div class="key" data-key="c">C</div>
-                            <div class="key" data-key="v">V</div>
-                            <div class="key" data-key="b">B</div>
-                            <div class="key" data-key="n">N</div>
-                            <div class="key" data-key="m">M</div>
-                            <div class="key" data-key=",">,</div>
-                            <div class="key" data-key=".">.</div>
-                            <div class="key" data-key="/">/</div>
-                            <div class="key" data-key="Shift">⇧</div>
-                        </div>
-                        <div class="keyboard-row">
-                            <div class="key" data-key="Control">Ctrl</div>
-                            <div class="key" data-key="Alt">Alt</div>
-                            <div class="key" data-key="Space">Espaço</div>
-                            <div class="key" data-key="Alt">Alt</div>
-                            <div class="key" data-key="Control">Ctrl</div>
-                        </div>
+                        <button class="start-activity-btn">Iniciar Atividade</button>
                     </div>
                 </div>
                 
-                <div class="practice-area">
-                    <div class="target-text">Digite: "ola"</div>
-                    <input type="text" class="user-input-field" placeholder="Digite aqui" autocomplete="off">
-                    <div class="feedback-message"></div>
-                </div>
-                
                 <div class="progress-bar-container">
-                    <div class="progress-bar"></div>
-                </div>
-                
-                <div class="lesson-controls">
-                    <button class="lesson-button next-button" disabled>Próximo</button>
+                    <div class="progress-bar" style="width: 0%"></div>
                 </div>
             </div>
         </main>
